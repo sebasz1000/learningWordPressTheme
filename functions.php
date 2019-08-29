@@ -3,6 +3,7 @@
 
  function siteResources(){
    wp_enqueue_style('style', get_stylesheet_uri());
+   wp_enqueue_script('main_js', get_template_directory_uri() . '/js/main.js',NULL, 1.0, true);
  }
 
  add_action('wp_enqueue_scripts', 'siteResources');
@@ -52,7 +53,7 @@ function theme_setup(){
   ));
    //adds post format support
   add_theme_support('post-formats', array('aside', 'gallery', 'link'));
-  add_image_size('small-thumbnail', 180, 120, true);
+  add_image_size('small-thumbnail', 220, 160, true);
   add_image_size('banner-image', 920, 210, array('left', 'center'));
 }
 
