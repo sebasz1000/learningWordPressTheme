@@ -1,0 +1,24 @@
+/*post */
+
+article.post {
+  margin: 18px 0;
+  background-color: transparent;
+
+  padding: 32px 20px;
+}
+body.home article.post,
+body.search article.post {
+  transition: all 200ms ease-in;
+  border-bottom: 1px solid #402f57;
+  padding-left: 214px;
+}
+
+body.home article.post:hover,
+body.search article.post:hover {
+  background-color: rgba(171, 51, 151, 0.22);
+  transform: scale(1.02);
+}
+
+article.post:last-of-type {
+  border-bottom: none;
+}

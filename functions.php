@@ -5,7 +5,14 @@
    wp_enqueue_style('style', get_template_directory_uri() . '/css/style.css', false, '1.0', 'all');
    wp_enqueue_script('main_js', get_template_directory_uri() . '/js/main.js',NULL, 1.0, true);
    wp_enqueue_script('main_js', get_template_directory_uri() . '/js/vendors.js',NULL, 1.0, true);
-   //wp_enqueue_script('main_js', get_template_directory_uri() . '/js/main.js',NULL, 1.0, true);
+   /*
+   wpApiSettings: object required to be used in any POST xml request, works with WP logged user and browser's cookies
+   siteURL: gives javascript file acces to siteURL property to point on request url to be used for wp API
+   */
+   wp_localize_script('main_js', 'wpApiSettings', array(
+      'nonce' => wp_create_nonce("wp_rest"),
+      'siteUrl' => get_site_url()
+   )); 
  }
 
  add_action('wp_enqueue_scripts', 'siteResources');
